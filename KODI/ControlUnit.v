@@ -95,6 +95,8 @@ assign ALUop = 2'b11;
 assign Branch = 1'b0;
 end
 //Instruksione Memorike
+    
+//LW
 4'b1100:
 begin
 assign RegDst = 1'b0;
