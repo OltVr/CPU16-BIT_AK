@@ -25,26 +25,25 @@ module ALU_1bit(
     input B,
     input LESS,
     input CIN,
-    input AInvert,
     input BInvert,
-    input [1:0] Operacion,
+    input [2:0] Operacion,
     output Rezultati,
     output COUT
     );
     
-wire JoA, JoB, mA, mB, DHE, OSE, Mbledhesi;    
+wire  JoB, mB, DHE, OSE, XOR, Mbledhesi;    
  
- assign JoA=~A;
  assign JoB=~B;
  
- mux2ne1 muxA(A,JoA,AInvert,mA);
  mux2ne1 muxB(B,JoB,BInvert,mB);
  
- assign DHE = mA&mB;
- assign OSE= mA|mB;
+ assign DHE = A&mB;
+ assign OSE= A|mB;
+ assign XOR= A^mB;
  
- Mbledhesi1bit Adder(mA,mB,CIN,Mbledhesi,COUT);
  
- mux4ne1 muxALU(DHE,OSE,Mbledhesi,LESS,Operacion,Rezultati);
+ Mbledhesi1bit Adder(A,mB,CIN,Mbledhesi,COUT);
+ 
+ mux8ne1 muxALU(DHE,LESS,OSE,XOR,Mbledhesi,Operacion,Rezultati);
   
 endmodule
