@@ -24,7 +24,6 @@ module ALU_16Bit(
     input [15:0] A,
     input [15:0] B,
     input [1:0] ALUOp,
-    input AInvert,
     input BNegate,
     output Zero,
     output Overflow,
@@ -34,22 +33,22 @@ module ALU_16Bit(
     
     wire [14:0] COUT;
  
- ALU_1bit ALU0(A[0],B[0],Result[15],BNegate,AInvert,BNegate,ALUOp, Result[0],COUT[0]);   
- ALU_1bit ALU1(A[1],B[1],0,COUT[0],AInvert,BNegate,ALUOp, Result[1],COUT[1]);   
- ALU_1bit ALU2(A[2],B[2],0,COUT[1],AInvert,BNegate,ALUOp, Result[2],COUT[2]);   
- ALU_1bit ALU3(A[3],B[3], 0,COUT[2],AInvert,BNegate,ALUOp, Result[3],COUT[3]);   
- ALU_1bit ALU4(A[4],B[4],0,COUT[3],AInvert,BNegate,ALUOp, Result[4],COUT[4]);   
- ALU_1bit ALU5(A[5],B[5],0,COUT[4],AInvert,BNegate,ALUOp, Result[5],COUT[5]);   
- ALU_1bit ALU6(A[6],B[6],0,COUT[5],AInvert,BNegate,ALUOp, Result[6],COUT[6]);   
- ALU_1bit ALU7(A[7],B[7],0,COUT[6],AInvert,BNegate,ALUOp, Result[7],COUT[7]);   
- ALU_1bit ALU8(A[8],B[8],0,COUT[7],AInvert,BNegate,ALUOp, Result[8],COUT[8]);   
- ALU_1bit ALU9(A[9],B[9],0,COUT[8],AInvert,BNegate,ALUOp, Result[9],COUT[9]);   
- ALU_1bit ALU10(A[10],B[10],0,COUT[9],AInvert,BNegate,ALUOp, Result[10],COUT[10]);   
- ALU_1bit ALU11(A[11],B[11],0,COUT[10],AInvert,BNegate,ALUOp, Result[11],COUT[11]);   
- ALU_1bit ALU12(A[12],B[12],0,COUT[11],AInvert,BNegate,ALUOp, Result[12],COUT[12]);   
- ALU_1bit ALU13(A[13],B[13],0,COUT[12],AInvert,BNegate,ALUOp, Result[13],COUT[13]);   
- ALU_1bit ALU14(A[14],B[14],0,COUT[13],AInvert,BNegate,ALUOp, Result[14],COUT[14]);   
- ALU_1bit ALU15(A[15],B[15],0,COUT[14],AInvert,BNegate,ALUOp, Result[15],CarryOut);    
+ ALU_1bit ALU0(A[0],B[0],Result[15],BNegate,BNegate,ALUOp, Result[0],COUT[0]);   
+ ALU_1bit ALU1(A[1],B[1],0,COUT[0],BNegate,ALUOp, Result[1],COUT[1]);   
+ ALU_1bit ALU2(A[2],B[2],0,COUT[1],BNegate,ALUOp, Result[2],COUT[2]);   
+ ALU_1bit ALU3(A[3],B[3], 0,COUT[2],BNegate,ALUOp, Result[3],COUT[3]);   
+ ALU_1bit ALU4(A[4],B[4],0,COUT[3],BNegate,ALUOp, Result[4],COUT[4]);   
+ ALU_1bit ALU5(A[5],B[5],0,COUT[4],BNegate,ALUOp, Result[5],COUT[5]);   
+ ALU_1bit ALU6(A[6],B[6],0,COUT[5],BNegate,ALUOp, Result[6],COUT[6]);   
+ ALU_1bit ALU7(A[7],B[7],0,COUT[6],BNegate,ALUOp, Result[7],COUT[7]);   
+ ALU_1bit ALU8(A[8],B[8],0,COUT[7],BNegate,ALUOp, Result[8],COUT[8]);   
+ ALU_1bit ALU9(A[9],B[9],0,COUT[8],BNegate,ALUOp, Result[9],COUT[9]);   
+ ALU_1bit ALU10(A[10],B[10],0,COUT[9],BNegate,ALUOp, Result[10],COUT[10]);   
+ ALU_1bit ALU11(A[11],B[11],0,COUT[10],BNegate,ALUOp, Result[11],COUT[11]);   
+ ALU_1bit ALU12(A[12],B[12],0,COUT[11],BNegate,ALUOp, Result[12],COUT[12]);   
+ ALU_1bit ALU13(A[13],B[13],0,COUT[12],BNegate,ALUOp, Result[13],COUT[13]);   
+ ALU_1bit ALU14(A[14],B[14],0,COUT[13],BNegate,ALUOp, Result[14],COUT[14]);   
+ ALU_1bit ALU15(A[15],B[15],0,COUT[14],BNegate,ALUOp, Result[15],CarryOut);    
      
     
    assign Zero = ~( Result[0] |  Result[1] | Result[2] | Result[3] | Result[4] | Result[5] | 
