@@ -26,6 +26,6 @@ module SRA(
     output signed [15:0] dalja
     );
     
-    assign dalja = hyrja >> shamt;
+    assign dalja = hyrja >>> shamt;
     
 endmodule
