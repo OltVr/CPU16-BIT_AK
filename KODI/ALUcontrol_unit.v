@@ -30,51 +30,37 @@ always @(ALUOp)
 begin
 
 case(ALUOp)
-2'b00:                  //LW,SW 
-begin
-assign Operacioni = 4'b0100;
-end
-2'b01:
-begin                   //BEQ
-assign Operacioni = 4'b1100;
-end
+2'b00: assign Operacioni = 4'b0100;             //LW,SW 
+
+2'b01: assign Operacioni = 4'b1100;             //BEQ
+
 2'b10:
-begin
     case(Funct)
-    2'b00:                    
-    begin
-       case(opcode)
-        4'b0000: assign Operacioni = 4'b0000;  //AND
-        4'b0001: assign Operacioni = 4'b0100;  //ADD
-        endcase
-    end
-    2'b01:              
-    begin
+    2'b00: 
         case(opcode)
+            4'b0000: assign Operacioni = 4'b0000;  //AND
+            4'b0001: assign Operacioni = 4'b0100;  //ADD
+        endcase
+2'b01:              
+    case(opcode)
         4'b0000: assign Operacioni = 4'b0010;  //OR
         4'b0001: assign Operacioni = 4'b1100;  //SUB
-        endcase
-    end
-    2'b10:                    //XOR
-    begin
-    assign Operacioni = 4'b0011;
-    end
     endcase
-end
+   
+2'b10: assign Operacioni = 4'b0011;    //XOR
+endcase
+
 2'b11: //I-format
-    begin
     case(opcode)
-            4'b1001: Operacioni = 4'b0100; // per ADDI
-            4'b1010: Operacioni = 4'b1101; // per SUBI
-            4'b1011: Operacioni = 4'b0001; // per SLTI
+        4'b1001: Operacioni = 4'b0100; // per ADDI
+        4'b1010: Operacioni = 4'b1101; // per SUBI
+        4'b1011: Operacioni = 4'b0001; // per SLTI
         4'b0010:
-            begin
-            case(Funct)
-            2'b00: Operacioni = 4'b0110; // per SLL - bonus
-            2'b01: Operacioni = 4'b0111; // per SRA - bonus
-            endcase
-            end
-        endcase
+                case(Funct)
+                    2'b00: assign Operacioni = 4'b0110; // per SLL - bonus
+                    2'b01: assign Operacioni = 4'b0111; // per SRA - bonus
+                endcase
+     endcase
 endcase
 end
 endmodule
