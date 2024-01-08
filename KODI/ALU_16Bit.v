@@ -23,7 +23,7 @@
 module ALU_16Bit(
     input [15:0] A,
     input [15:0] B,
-    input [1:0] ALUOp,
+    input [2:0] ALUOp,
     input BNegate,
     output Zero,
     output Overflow,
