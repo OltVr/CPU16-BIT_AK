@@ -66,16 +66,13 @@ end
             4'b1001: Operacioni = 4'b0100; // per ADDI
             4'b1010: Operacioni = 4'b1101; // per SUBI
             4'b1011: Operacioni = 4'b0001; // per SLTI
-        case(Funct)
-            2'b00
+        4'b0010:
             begin
-            4'b0010: Operacioni = 4'b0110; // per SLL - bonus
+            case(Funct)
+            2'b00: Operacioni = 4'b0110; // per SLL - bonus
+            2'b01: Operacioni = 4'b0111; // per SRA - bonus
+            endcase
             end
-            2'b01
-            begin
-            4'b0010: Operacioni = 4'b0111; // per SRA - bonus
-            end
-        endcase
         endcase
 endcase
 end
