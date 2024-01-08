@@ -24,7 +24,7 @@ module ALUcontrol_unit(
 input[1:0] ALUOp, 
 input[1:0] Funct, 
 input[3:0] opcode,
-output reg[4:0] Operacioni);
+output reg[3:0] Operacioni);
 
 always @(ALUOp)
 begin
