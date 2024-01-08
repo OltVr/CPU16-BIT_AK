@@ -28,35 +28,34 @@ module ALUcontrol_unit(
 always @(ALUOp or Funct or opcode)
 begin
     case (ALUOp)
-        2'b00: Operacioni <= 4'b0100; //LW,SW 
-        2'b01: Operacioni <= 4'b1100; //BEQ
+        2'b00: Operacioni = 4'b0100; //LW,SW 
+        2'b01: Operacioni = 4'b1100; //BEQ
         2'b10:
             case (Funct)
                 2'b00: 
                     case (opcode)
-                        4'b0000: Operacioni <= 4'b0000; //AND
-                        4'b0001: Operacioni <= 4'b0100; //ADD
+                        4'b0000: Operacioni = 4'b0000; //AND
+                        4'b0001: Operacioni = 4'b0100; //ADD
                     endcase
                 2'b01:              
                     case (opcode)
-                        4'b0000: Operacioni <= 4'b0010; //OR
-                        4'b0001: Operacioni <= 4'b1100; //SUB
+                        4'b0000: Operacioni = 4'b0010; //OR
+                        4'b0001: Operacioni = 4'b1100; //SUB
                     endcase
-                2'b10: Operacioni <= 4'b0011; //XOR
+                2'b10: Operacioni = 4'b0011; //XOR
             endcase
         2'b11: //I-format
             case (opcode)
-                4'b1001: Operacioni <= 4'b0100; // per ADDI
-                4'b1010: Operacioni <= 4'b1101; // per SUBI
-                4'b1011: Operacioni <= 4'b0001; // per SLTI
+                4'b1001: Operacioni = 4'b0100; // per ADDI
+                4'b1010: Operacioni = 4'b1101; // per SUBI
+                4'b1011: Operacioni = 4'b0001; // per SLTI
                 4'b0010:
                     case (Funct)
-                        2'b00: Operacioni <= 4'b0110; // per SLL - bonus
-                        2'b01: Operacioni <= 4'b0111; // per SRA - bonus
+                        2'b00: Operacioni = 4'b0110; // per SLL - bonus
+                        2'b01: Operacioni = 4'b0111; // per SRA - bonus
                     endcase
             endcase
     endcase
 end
 
 endmodule
-
