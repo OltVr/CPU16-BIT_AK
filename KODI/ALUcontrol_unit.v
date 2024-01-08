@@ -62,6 +62,7 @@ begin
     endcase
 end
 2'b11: //I-format
+    begin
     case(opcode)
             4'b1001: Operacioni = 4'b0100; // per ADDI
             4'b1010: Operacioni = 4'b1101; // per SUBI
