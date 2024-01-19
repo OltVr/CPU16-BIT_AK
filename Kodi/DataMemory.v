@@ -27,7 +27,7 @@ input wire[15:0] PC,
 input wire MemWrite,
 input wire MemRead,
 input wire Clock,
-output reg [15:0] ReadData
+output [15:0] ReadData
 );
 wire [15:0] AddressPC;
 reg[7:0] dataMem[127:0];
@@ -39,30 +39,26 @@ $readmemb("dataMemory.mem", dataMem);
 
 
 
-always@(posedge Clock)
+always @(posedge Clock)
 begin 
-if(MemRead == 1'b1)
-            begin
-              ReadData[15:8] <= dataMem[Address + 16'd0];
-              ReadData[7:0] <= dataMem[Address + 16'd1];
-          end
-    if(MemWrite) 
-        begin
-            //bigEndian
-            dataMem[AddressPC + 16'd0] <= WriteData[15:8];
-            dataMem[AddressPC + 16'd1] <= WriteData[7:0];
-           end
-          
+    
+
+    if (MemWrite) 
+    begin
+        //bigEndian
+        dataMem[AddressPC + 16'd0] <= WriteData[15:8];
+        dataMem[AddressPC + 16'd1] <= WriteData[7:0];
+    end
 end
 
 always @(negedge Clock)
 begin
-
-$writememb("dataMemory.mem", dataMem);
+    $writememb("dataMemory.mem", dataMem);
 end
-
  
  
+ assign ReadData[15:8] = dataMem[Address + 16'd0];
+ assign ReadData[7:0] = dataMem[Address + 16'd1];
 
 
 
