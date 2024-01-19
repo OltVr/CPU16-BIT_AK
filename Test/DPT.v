@@ -88,28 +88,6 @@ DataPath DPT (
   $display("Addresa perfundimtare e PC = %0b", DPT.pcbeq);
   $display("Addresa perfundimtare e PC_next = %0d", DPT.pc_next);
   #10 Clock=1'b1;
-//#5 $display("Initial value of pc_initial = %0d", DPT.pc_initial);
-//  $display("PC2 = %0d", DPT.pc2);
-//  $display("Instruction = %0b", DPT.instruction);
-//  $display("Shifted = %0b", DPT.shifter1beq);
-//  $display("Shifted dec = %0d", DPT.shifter1beq);
-//  $display("MuxRegFile = %0b", DPT.mux_regfile);
-//  $display("Zgjerimi = %0b", DPT.Zgjerimi);
-//  $display("WriteData = %0b", DPT.writeData);
-//  $display("ReadD1 = %0b", DPT.readData1);
-//  $display("ReadD2 = %0b", DPT.readData2);
-//  $display("Mux ALU = %0b", DPT.mux_ALU);
-//  $display("ALU Control = %0b", DPT.ALUCtrl);
-//  $display("ALU Zero = %0b", DPT.zerof);
-//  $display("ALU Out = %0b", DPT.ALU_Out);
-//  $display("ALU Overflow = %0b", DPT.overflow);
-//  $display("ALU Carryout = %0b", DPT.carryout);
-//  $display("Mux per Datamem = %0b", DPT.memToMux);
-//  $display("E dhena qe shkruhet ne memorie = %0b", DPT.writeData);
-//  $display("Sinjali i MUXBranch = %0b", DPT.andMuxBranch);
-//  $display("Addresa e Beq = %0d", DPT.beqAddress); // testo per linjen e beqit
-//  $display("Addresa perfundimtare e PC = %0b", DPT.pcbeq);
-//  $display("Addresa perfundimtare e PC_next = %0d", DPT.pc_next);  
  end
    
   
