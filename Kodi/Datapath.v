@@ -61,13 +61,13 @@ assign mux_ALU = (ALUSrc == 1'b1) ? Zgjerimi : readData2;
 ALUControl AC(ALUOp, instruction[1:0], instruction[15:12], ALUCtrl); 
 
 //inicializimi i ALU (T7, T10, T19[3], T19[2], T19[1:0], T20, T11, T21, T22)
-ALU16 ALU(readData1, mux_ALU, ALUCtrl[3], ALUCtrl[2:0], zerof, ALU_Out, overflow, carryout);
+ALU16 ALU(readData1, mux_ALU,instruction[5:2] ,ALUCtrl[3], ALUCtrl[2:0], zerof, ALU_Out, overflow, carryout);
 
 //inicializimi i Data Memory (T11, T8, CU_OUT_x, CU_OUT_x, CPU_IN_1, T13) 
 DataMemory DM(ALU_Out, readData2,pc_initial ,MemWrite, MemRead, Clock, memToMux);
 
 //T9 - Teli qe i dergon te dhenat nga MUX - M3 ne Regfile
-assign writeData = (MemToReg == 1'b1) ? memToMux : ALU_Out;
+assign writeData = (MemToReg) ? memToMux : ALU_Out;
 
 //T23 - Teli qe del nga porta DHE ne pjesen e eperme te fotos (shikon nese plotesohet kushti per BEQ
 assign andMuxBranch = zerof & Branch;
