@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module cputest();
 
 
@@ -28,7 +27,7 @@ reg Clock;
 integer i;
 initial
 begin
-for(i=0; i < 30; i=i+1) //30x nderro nga Clock 0 - 1, 30 tehe pozitive
+for(i=0; i < 118; i=i+1) //30x nderro nga Clock 0 - 1, 30 tehe pozitive
 begin
 #10 Clock = 0;
 #5 $display("==========PC===========");
@@ -93,6 +92,9 @@ begin
   $display("ALU Carryout = %0b", cpu16.DP.carryout);
    $display("==========DATAMEMORY===========");
   $display("ReadData = %0b", cpu16.DP.DM.ReadData);
+  $display("Addresa = %0b", cpu16.DP.DM.Address);
+  $display("PC = %0b", cpu16.DP.DM.PC);
+  $display("AddressPC = %0b", cpu16.DP.DM.AddressPC);
   $display("Dalja nga mux i dataMem qe shkon ne write data te regjistrit (ALUOut ose ReadData) = %0b", cpu16.DP.writeData);
    $display("==========BEQ===========");
   $display("Sinjali i MUXBranch = %0b", cpu16.DP.andMuxBranch);
