@@ -38,7 +38,7 @@ end
 FullAdder2 FA(pc_initial,pc2); // krijo FullAdder2 qe e kryn qita
 
 //T14 - pergatitja e adreses per kercim ne BEQ (164 bit si MSB, 16 bit nga pjesa imediate, 2 bit shtyrje majtas (x4) 
-assign shifter1beq = {{7{instruction[7]}}, instruction[7:0], 1'b0};
+assign shifter1beq = {Zgjerimi[14:0], 1'b0};
 
 
 //Instr mem //inicializimi i IM (PC adresa hyrje, teli instruction dajle)
@@ -89,3 +89,4 @@ assign pc_next = pcbeq;
 assign opcode = instruction[15:12];
 
 endmodule
+
