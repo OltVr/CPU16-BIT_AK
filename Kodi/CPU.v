@@ -38,16 +38,16 @@ opcode
 );
 
 //Inicializimi i COntrol Unit
-CU ControlUnit(opcode,
-RegDst, 
-Jump, 
-Branch, 
-MemRead, 
+ControlUnit CU(
+opcode,
+RegDst,
+ALUSrc, 
 MemToReg,
-ALUOp,
+RegWrite,
+MemRead,
 MemWrite, 
-ALUSrc,
-RegWrite
+ALUOp,
+Branch
 );
 
 endmodule
