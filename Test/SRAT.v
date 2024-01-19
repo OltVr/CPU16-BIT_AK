@@ -30,7 +30,7 @@ module SRAT(
     
     initial
     begin
-    #0 A=16'b1100001000000000;Shamt=16'd2;
+    #0 A=16'd40;Shamt=16'd9;
     end
     
     SRA SRAT(A,Shamt,ShiftedRA);
