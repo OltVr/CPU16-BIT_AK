@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
 module InstrMemT(
     );
     
@@ -32,13 +33,13 @@ module InstrMemT(
     
     initial 
     begin
-    // Apply different PCAddress values
-    #0PCAddress = 16'd10; // Set your initial PCAddress
-    #100; // Wait for some simulation time
+    
+    #0PCAddress = 16'd10; 
+    #100; 
     #100 $display("Instruction at PCAddress %d: %d", PCAddress, Instruction);
 
-    #100 PCAddress = 16'd14; // Set another PCAddress
-    #100 // Wait for some simulation time
+    #100 PCAddress = 16'd14; 
+    #100 
     #100 $display("Instruction at PCAddress %h: %h", PCAddress, Instruction);
     #10 $stop;
     
