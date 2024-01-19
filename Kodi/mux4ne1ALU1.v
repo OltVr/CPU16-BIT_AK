@@ -21,7 +21,7 @@
 
 
 
-module mux8ne1(
+module mux4ne1ALU1(
     input Hyrja0,
     input Hyrja1,
     input Hyrja2,
