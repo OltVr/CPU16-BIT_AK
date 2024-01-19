@@ -26,10 +26,9 @@ module mux8ne1(
     input Hyrja1,
     input Hyrja2,
     input Hyrja3,
-    input Hyrja4,
     input [2:0] S,
     output Dalja
     );
-    
-    assign Dalja= S[2] ? Hyrja4 : (S[1]? (S[0]? Hyrja3:Hyrja2):(S[0]? Hyrja1:Hyrja0)); 
+//    dhe_teli, ose_teli,xor_teli, mb_teli, Op, Result
+    assign Dalja= S[2]? Hyrja3:(S[1]?(S[0]?Hyrja2:Hyrja1):Hyrja0); 
 endmodule
