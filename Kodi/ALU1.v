@@ -25,7 +25,6 @@ module ALU1(
     input B,
     input CIN,
     input BInvert,
-    input Less,
     input [2:0] Op,
     output Result,
     output CarryOut
@@ -42,7 +41,7 @@ module ALU1(
    assign xor_teli= A^mB;
    Mbledhesi m1(A, mB, CIN, mb_teli, CarryOut);
    
-   mux4ne1ALU1 MuxiKryesor(dhe_teli, ose_teli,xor_teli, mb_teli, Op, Result);
+   mux8ne1 MuxiKryesor(dhe_teli, ose_teli,xor_teli, mb_teli, Op, Result);
     
     
 endmodule
