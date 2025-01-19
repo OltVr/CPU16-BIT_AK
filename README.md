@@ -1,3 +1,3 @@
 # CPU16-BIT_AK
-Detyra e 2 AK- CPU 16 Biteshe
-Krijimi dhe funksionaliteti i ni CPU 16 Biteshe
+
+This is a simple Computer Architecture project about a Custom made 16 bit CPU using verilog
